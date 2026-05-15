@@ -1,4 +1,9 @@
 package PROYECTO_FINAL.Principal;
+import Modelos.*;
+import Servicios.*;
+import excepciones.*;
+import Util.*;
+import estructuras.*;
 
 import PROYECTO_FINAL.Servicios.InscripcionManager;
 import PROYECTO_FINAL.Servicios.GeneradorReportes;
