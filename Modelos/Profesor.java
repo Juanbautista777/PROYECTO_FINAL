@@ -1,4 +1,5 @@
-package PROYECTO_FINAL .Modelos;
+package PROYECTO_FINAL.Modelos;
+
 /**
  * Representa a un docente en el sistema. Hereda de Persona y
  * puede gestionar atributos específicos como su especialidad.
