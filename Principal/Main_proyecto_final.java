@@ -1,10 +1,4 @@
 package PROYECTO_FINAL.Principal;
-
-
-
-
-
-
 import PROYECTO_FINAL.Servicios.InscripcionManager;
 import PROYECTO_FINAL.Servicios.GeneradorReportes;
 import PROYECTO_FINAL.Modelos.*;
@@ -15,20 +9,20 @@ import PROYECTO_FINAL.excepciones.*;
 import java.util.Scanner;
 
 /**
- * Clase principal del Sistema de GestiÃ³n AcadÃ©mica.
- * Contiene el menÃº interactivo con las 22 opciones requeridas por el PDF.
+ * Clase principal del Sistema de Gestion Academica.
+ * Contiene el menu interactivo con las 22 opciones requeridas por el PDF.
  */
 public class Main_proyecto_final {
 
     public static void main(String[] args) {
 
-        // â”€â”€ InicializaciÃ³n de servicios â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        // Inicializacion de servicios 
         InscripcionManager manager  = new InscripcionManager();
         GeneradorReportes  generador = new GeneradorReportes();
         NavegadorRutas     navegador = new NavegadorRutas(10);
         Scanner sc = new Scanner(System.in);
 
-        // Edificios iniciales del campus (mÃ­nimo 5 requerido por el PDF)
+        // Edificios iniciales del campus (m­inimo 5 requerido por el PDF)
         navegador.registrarEdificioEnGrafo("Ingenieria");
         navegador.registrarEdificioEnGrafo("Biblioteca");
         navegador.registrarEdificioEnGrafo("Cafeteria");
@@ -42,7 +36,7 @@ public class Main_proyecto_final {
         navegador.agregarConexion("Biblioteca",   "Laboratorios", 100);
         navegador.agregarConexion("Rectoria",     "Laboratorios", 250);
 
-        // â”€â”€ Bucle principal del menÃº â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+        //Bucle principal del menu
         int opcion = 0;
         do {
             System.out.println("\n============================================================");
@@ -87,7 +81,7 @@ public class Main_proyecto_final {
 
                 switch (opcion) {
 
-                    // â”€â”€ 1. Registrar estudiante â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    // 1. Registrar estudiante 
                     case 1: {
                         System.out.println("\n--- REGISTRO DE ESTUDIANTE ---");
                         System.out.print("ID     : "); String id  = sc.nextLine().trim();
@@ -99,7 +93,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 2. Buscar estudiante â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //2. Buscar estudiante 
                     case 2: {
                         System.out.println("\n--- BUSCAR ESTUDIANTE ---");
                         System.out.print("ID: ");
@@ -110,13 +104,13 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 3. Listar estudiantes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    // 3. Listar estudiantes 
                     case 3: {
                         manager.listarEstudiantes();
                         break;
                     }
 
-                    // â”€â”€ 4. Eliminar estudiante â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //4. Eliminar estudiante
                     case 4: {
                         System.out.println("\n--- ELIMINAR ESTUDIANTE ---");
                         System.out.print("ID a eliminar: ");
@@ -125,7 +119,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 5. Crear materia â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //5. Crear materia
                     case 5: {
                         System.out.println("\n--- CREAR MATERIA ---");
                         System.out.print("Codigo   : "); String cod  = sc.nextLine().trim();
@@ -138,7 +132,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 6. Agregar pre-requisito â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //6. Agregar pre-requisito
                     case 6: {
                         System.out.println("\n--- AGREGAR PRE-REQUISITO ---");
                         System.out.print("Codigo de la materia   : ");
@@ -149,7 +143,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 7. Mostrar pre-requisitos â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //7. Mostrar pre-requisitos
                     case 7: {
                         System.out.println("\n--- PRE-REQUISITOS ---");
                         System.out.print("Codigo de la materia: ");
@@ -158,7 +152,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 8. Inscribir estudiante â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //8. Inscribir estudiante
                     case 8: {
                         System.out.println("\n--- INSCRIBIR ESTUDIANTE ---");
                         System.out.print("ID Estudiante  : ");
@@ -169,7 +163,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 9. Cancelar inscripcion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //9. Cancelar inscripcion 
                     case 9: {
                         System.out.println("\n--- CANCELAR INSCRIPCION ---");
                         System.out.print("ID Estudiante  : ");
@@ -180,7 +174,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 10. Mostrar cola de espera â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //10. Mostrar cola de espera 
                     case 10: {
                         System.out.println("\n--- COLA DE ESPERA ---");
                         System.out.print("Codigo Materia: ");
@@ -189,7 +183,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 11. Reservar horario â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //11. Reservar horario
                     case 11: {
                         System.out.println("\n--- RESERVAR HORARIO EN AULA ---");
                         System.out.print("Nombre del aula     : ");
@@ -208,7 +202,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 12. Liberar horario â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //12. Liberar horario 
                     case 12: {
                         System.out.println("\n--- LIBERAR HORARIO ---");
                         System.out.print("Nombre del aula: ");
@@ -226,7 +220,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 13. Consultar disponibilidad â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //13. Consultar disponibilidad 
                     case 13: {
                         System.out.println("\n--- CONSULTAR DISPONIBILIDAD ---");
                         System.out.print("Nombre del aula : ");
@@ -243,7 +237,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 14. Agregar conexion entre edificios â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //14. Agregar conexion entre edificios
                     case 14: {
                         System.out.println("\n--- AGREGAR CONEXION ---");
                         navegador.listarEdificios();
@@ -257,7 +251,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 15. Calcular ruta mas corta (Dijkstra) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //15. Calcular ruta mas corta (Dijkstra) 
                     case 15: {
                         System.out.println("\n--- CALCULAR RUTA MAS CORTA ---");
                         navegador.listarEdificios();
@@ -269,7 +263,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 16. Registrar nota â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //16. Registrar nota 
                     case 16: {
                         System.out.println("\n--- REGISTRAR NOTA ---");
                         System.out.print("ID Estudiante   : ");
@@ -284,7 +278,7 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 17. Ver reporte academico â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //17. Ver reporte academico
                     case 17: {
                         System.out.println("\n--- REPORTE ACADEMICO ---");
                         System.out.print("ID Estudiante: ");
@@ -294,25 +288,25 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 18. Navegador de reportes (atras) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //18. Navegador de reportes (atras)
                     case 18: {
                         generador.mostrarReporteAnterior();
                         break;
                     }
 
-                    // â”€â”€ 19. Deshacer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //19. Deshacer
                     case 19: {
                         manager.deshacerUltimaOperacion();
                         break;
                     }
 
-                    // â”€â”€ 20. Rehacer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //20. Rehacer 
                     case 20: {
                         manager.rehacerUltimaOperacion();
                         break;
                     }
 
-                    // â”€â”€ 21. Procesar CSV batch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //21. Procesar CSV batch 
                     case 21: {
                         System.out.print("Ruta del archivo CSV (ej: inscripciones.csv): ");
                         String archivo = sc.nextLine().trim();
@@ -321,13 +315,13 @@ public class Main_proyecto_final {
                         break;
                     }
 
-                    // â”€â”€ 22. Listar facultades (arreglo Facultad[5]) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //22. Listar facultades (arreglo Facultad[5]) 
                     case 22: {
                         Facultad.listarFacultades();
                         break;
                     }
 
-                    // â”€â”€ 0. Salir â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    //0. Salir 
                     case 0: {
                         System.out.println("\nCerrando sistema. Â¡Hasta luego!");
                         break;
